@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <title>Ficha de personagem</title>
+  </head>
+  <body>
+    <h1 class="title">Ficha de personagem</h1>
+
+    <!-- modal -->
+    <div id="diceAttributes" class="modal">
+      <div class="modal-content">
+        <img class="modalDice" src="./img/dado.png" alt="Dado" />
+        <h2 id="diceNumber"></h2>
+        <p id="diceType"></p>
+      </div>
+    </div>
+
+    <div id="lifeModal" class="modal with-input">
+      <div class="modal-content">
+        <h2>MODIFICAR VIDA</h2>
+        <hr />
+        <form class="formModal" id="changeLife">
+          <h3>Atual</h3>
+          <input type="number" name="current" id="lifeCurrent" min="0" />
+          <h3>Máximo</h3>
+          <input type="number" name="max" id="lifeMax" min="0" />
+          <input type="submit" value="Salvar" />
+        </form>
+      </div>
+    </div>
+
+    <div id="sanityModal" class="modal with-input">
+      <div class="modal-content">
+        <h2>MODIFICAR SANIDADE</h2>
+        <hr />
+        <form class="formModal" id="changeSanity">
+          <h3>Atual</h3>
+          <input
+            type="number"
+            name="sanityCurrent"
+            id="sanityCurrent"
+            min="0"
+          />
+          <h3>Máximo</h3>
+          <input type="number" name="sanityMax" id="sanityMax" min="0" />
+          <input type="submit" value="Salvar" />
+        </form>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="details border">
+        <h2 class="grid-title">DETALHES PESSOAIS</h2>
+        <hr />
+
+        <div class="inputs">
+          <h4>Nome</h4>
+          <input type="text" name="name" id="name" value="" />
+          <h4>Jogador</h4>
+          <input type="text" name="player" id="player" value="" />
+          <h4>Ocupação</h4>
+          <input type="text" name="occupation" id="occupation" value="" />
+          <h4>Idade</h4>
+          <input type="text" name="age" id="age" value="" />
+          <h4>Sexo</h4>
+          <input type="text" name="sex" id="sex" value="" />
+          </select>
+          <h4>Altura</h4>
+          <input type="text" name="altura" id="altura" value="" />
+          <h4>Peso</h4>
+          <input type="text" name="peso" id="peso" value="" />
+        </div>
+      </div>
+      <div class="character">
+        <div class="characterHeader">
+          <img class="characterPhoto" src="./img/character.png" alt="Foto" />
+          <img class="dice" src="./img/dado.png" alt="Dado" />
+        </div>
+
+        <div class="bars">
+          <h4>Vida</h4>
+          <div class="bar">
+            <div class="lifeBar" style="width: 0%">
+              <p class="barcount" id="lifeCount"></p>
+            </div>
+          </div>
+          <div class="checkboxs">
+            <form action="">
+              <input type="checkbox" id="lesion" name="lesion" value="lesion" />
+              <label for="lesion"> Lesão grave</label>
+              <input type="checkbox" id="injury" name="injury" value="injury" />
+              <label for="injury"> Lesionamento</label>
+              <input type="checkbox" id="dying" name="dying" value="dying" />
+              <label for="dying"> Morrendo</label>
+            </form>
+          </div>
+
+          <h4>Sanidade</h4>
+          <div class="sanity">
+            <div class="contentSanityBar">
+              <div class="sanityBar" style="width: 0%">
+                <p class="barcount" id="sanityCount"></p>
+              </div>
+            </div>
+            <img class="sanityDice" src="./img/dado.png" alt="Dado" />
+          </div>
+          <div class="checkboxs">
+            <input
+              type="checkbox"
+              id="traumatized"
+              name="traumatized"
+              value="traumatized"
+            />
+            <label for="traumatized"> Traumatizado</label>
+            <input type="checkbox" id="crazed" name="crazed" value="crazed" />
+            <label for="crazed"> Enlouquecido</label>
+          </div>
+        </div>
+
+        <div class="extra">
+          <div class="damage">
+            <p>Esquiva</p>
+            <input type="number" name="esquiva" id="esquiva" value="" />
+          </div>
+          <div class="damage">
+            <p>Luta</p>
+            <input type="number" name="lutar" id="lutar" value="" />
+          </div>
+          <div class="body">
+            <p>Movimento</p>
+            <input type="number" name="move" id="move" value="" />
+          </div>
+          </div>
+      </div>
+      <div class="attributes border">
+        <h2 class="grid-title">ATRIBUTOS</h2>
+        <hr />
+
+        <div class="attributesList" id="attributesList"></div>
+      </div>
+      <div class="expertise border">
+          <h2 class="grid-title">PERÍCIAS</h2>
+          <hr />
+          <table class="weapons" id="weapons">
+            <tr>
+              <th><h2>Nome</h2></th>
+              <th><h2>Valor</h2></th>
+            </tr>
+            <tr>
+            <th>Acrobacia</th>
+            <th> <input type="number" id="acrobacia"> </th>
+            </tr>
+            <tr>
+            <th>Adestrar Animais</th>
+            <th> <input type="number" id="adestrar_animais"> </th>
+            </tr>
+            <tr>
+            <th>Arremessar</th>
+            <th> <input type="number" id="arremessar"> </th>
+            </tr>
+            <tr>
+            <th>Blefar</th>
+            <th> <input type="number" id="blefar"> </th>
+            </tr>
+            <tr>
+            <th>Cavalgar</th>
+            <th> <input type="number" id="cavalgar"> </th>
+            </tr>
+            <tr>
+            <th>Concentração</th>
+            <th> <input type="number" id="concentrar"> </th>
+            </tr>
+            <tr>
+            <th>Condução</th>
+            <th> <input type="number" id="conducao"> </th>
+            </tr>
+            <tr>
+            <th>Conhecimento</th>
+            <th> <input type="number" id="conhecimento"> </th>
+            </tr>
+            <tr>
+            <th>Decifrar Escrita</th>
+            <th> <input type="number" id="decifrar"> </th>
+            </tr>
+            <tr>
+            <th>Demolição*</th>
+            <th> <input type="number" id="demolicao"> </th>
+            </tr>
+            <tr>
+            <th>Diplomacia</th>
+            <th> <input type="number" id="diplomacia"> </th>
+            </tr>
+            <tr>
+            <th>Disfarce</th>
+            <th> <input type="number" id="disfarce"> </th>
+            </tr>
+            <tr>
+            <th>Encontrar</th>
+            <th> <input type="number" id="encontrar"> </th>
+            </tr>
+            <tr>
+            <th>Equilíbrio</th>
+            <th> <input type="number" id="equilibrio"> </th>
+            </tr>
+            <tr>
+            <th>Escalar</th>
+            <th> <input type="number" id="escalar"> </th>
+            </tr>
+            <tr>
+            <th>Esconder-se</th>
+            <th> <input type="number" id="esconder"> </th>
+            </tr>
+            <tr>
+            <th>Escutar</th>
+            <th> <input type="number" id="escutar"> </th>
+            </tr>
+            <tr>
+            <th>Falsificação*</th>
+            <th> <input type="number" id="falsificar"> </th>
+            </tr>
+            <tr>
+            <th>Furtividade</th>
+            <th> <input type="number" id="furtividade"> </th>
+            </tr>
+            <tr>
+            <th>Idioma*</th>
+            <th> <input type="number" id="idioma"> </th>
+            </tr>
+            <tr>
+            <th>Intimidar</th>
+            <th> <input type="number" id="intimidar"> </th>
+            </tr>
+            <tr>
+            <th>Investigar</th>
+            <th> <input type="number" id="investigar"> </th>
+            </tr>
+            <tr>
+            <th>Jogos</th>
+            <th> <input type="number" id="jogos"> </th>
+            </tr>
+            <tr>
+            <th>Medicina</th>
+            <th> <input type="number" id="medicina"> </th>
+            </tr>
+            <tr>
+            <th>Natação</th>
+            <th> <input type="number" id="natacao"> </th>
+            </tr>
+            <tr>
+            <th>Persuasão</th>
+            <th> <input type="number" id="persuasao"> </th>
+            </tr>
+            <tr>
+            <th>Prestidigitação</th>
+            <th> <input type="number" id="prestidigitacao"> </th>
+            </tr>
+            <tr>
+            <th>Primeiros Socorros</th>
+            <th> <input type="number" id="socorros"> </th>
+            </tr>
+            <tr>
+            <th>Psicologia</th>
+            <th> <input type="number" id="psicologia"> </th>
+            </tr>
+            <tr>
+            <th>Reparos Mecânicos</th>
+            <th> <input type="number" id="reparos_mecanicos"> </th>
+            </tr>
+            <tr>
+            <th>Reparos Elétricos</th>
+            <th> <input type="number" id="reparos_eletricos"> </th>
+            </tr>
+            <tr>
+            <th>Saltar</th>
+            <th> <input type="number" id="saltar"> </th>
+            </tr>
+            <tr>
+            <th>Sobrevivência</th>
+            <th> <input type="number" id="sobreviver"> </th>
+            </tr>
+            <tr>
+            <th>Sobrevivência Urbana</th>
+            <th> <input type="number" id="sobreviver_urbana"> </th>
+            </tr>
+            <tr>
+            <th>Usar Bibliotecas</th>
+            <th> <input type="number" id="use_bibliotecas"> </th>
+            </tr>
+            <tr>
+            <th>Usar Computadores</th>
+            <th> <input type="number" id="use_pc"> </th>
+            </tr>
+          </table>
+          
+ 
+      </div>
+      <div class="combat border">
+        <div class="combatHeader">
+          <h2 class="grid-title">COMBATE</h2>
+ 
+        </div>
+        <hr />
+
+        <table class="weapons" id="weapons">
+          <tr>
+            <th>Nome</h3></th>
+            <th>Dano</h3></th>
+            <th>Habilidade</h3></th>
+            <th>Alcance</h3></th>
+            <th>Munição</h3></th>
+            <th>Propriedades Especiais</h3></th>
+          </tr>
+        </table>
+        <table class="weapons" id="weapons">
+          <tr>
+            <th> <input style="width: 100%;"type="text" id="slot_arma1" value=""> </th>
+            <th> <input style="width: 40%;" type="text" id="dano1" value=""> </th>
+            <th> <input style="width: 90%;" type="text" value="N/a"> <input style="width: 30%;" type="number" id=""> </th>
+            <th> <input style="width: 40%;" type="text" id="alcance1" value="">  </th>
+            <th> <input style="width: 40%;" type="text" id="municao" value="">  </th>
+            <th> <input style="width: 93%;" type="text"  value="">  </th>
+          </tr>
+          <tr>
+            <th> <input style="width: 100%;"type="text" id="slot_arma2" value=""> </th>
+            <th> <input style="width: 40%;" type="text" id="dano2" value=""> </th>
+            <th> <input style="width: 90%;" type="text" value="N/a"> <input style="width: 30%;" type="number" id=""> </th>
+            <th> <input style="width: 40%;" type="text" id="alcance2" value="">  </th>
+            <th> <input style="width: 40%;" type="text" id="" value="N/a">  </th>
+            <th> <input style="width: 93%;" type="text"  value="">  </th>
+          </tr>
+          <tr>
+            <th> <input style="width: 100%;"type="text" id="slot_arma3" value=""> </th>
+            <th> <input style="width: 40%;" type="text" id="dano3" value=""> </th>
+            <th> <input style="width: 90%;" type="text" value="N/a"> <input style="width: 30%;" type="number" id=""> </th>
+            <th> <input style="width: 40%;" type="text" id="alcance3" value="">  </th>
+            <th> <input style="width: 40%;" type="text" id="municao3" value="">  </th>
+            <th> <input style="width: 93%;"type="text"  value="">  </th>
+          </tr>
+      </table>
+      </div>
+      
+      <div class="expertise2 border">
+        <h2 class="grid-title">EQUIPAMENTOS</h2>
+        <hr />
+        <table class="weapons2" id="weapons2"> 
+          <tr>
+            <th>  
+              <h2> Bens</h2>
+    
+            </th>
+            <th>
+      
+              <h2> Mochila</h2>
+            </th>
+          </tr>
+          <tr>
+            <th>  
+              Fotos antigas da família,<br>
+              Coturno de Trilha,<br>
+              Relógio de punho que marca batimentos,<br>
+              Celular,<br>
+              
+            </th>
+            <th>  <br>  
+              <input type="text" id="slot"><br>
+              <input type="text" id="slot2"><br>
+              <input type="text" id="slot3"><br>
+              <input type="text" id="slot4"><br>
+              <input type="text" id="slot5"><br>
+              <input type="text" id="slot6"><br>
+
+            </th>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- <div class="modal-overlay active">
+            <div class="modal">
+                <h2>MODIFICAR VIDA</h2>
+                <hr>
+                <form id="changeLife">
+                    <span class="modalspan">Atual</span>
+                    <input class="modalinput" type="number" name="current" id="lifeCurrent" min="0">
+
+                    <span class="modalspan">Máximo</span>
+                    <input class="modalinput" type="number" name="max" id="lifeMax" min="0">
+                    <input class="modalbutton" type="submit" value="Salvar">
+                </form>
+            </div>
+        </div> -->
+
+    <script src="characterSheet.js"></script>
+  </body>
+</html>
