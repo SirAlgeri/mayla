@@ -96,6 +96,7 @@ h2.grid-title {
 .dice {
     height: 80px;
     margin-top: 18px;
+    margin-left: 50px;
 }
 
 .attributes { 
@@ -374,21 +375,24 @@ select:focus {
     align-self: end;
     width: 80%;
     background-color: grey;
-    margin-bottom: 10px;
-    margin-top: 5px;
+    margin-bottom: 0px;
+    margin-top: 35px;
 }
 .sanity {
     display: flex;
     justify-content: space-between;
     align-items: end;
+    
 }
 
 .sanityDice {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    height: 35px;
+    cursor: pointer;
+    height: 40px;
+    margin-top: 0px;
+    margin-left: 50px;
 }
+
+
 
 .bars .checkboxs {
     text-align: center;
@@ -400,6 +404,7 @@ select:focus {
 
 .lifeBar {
     /* width: 50%; */
+    cursor: pointer;
     height: 25px;
     background-color: #640101;
     transition: width 2s;
@@ -410,6 +415,7 @@ select:focus {
 }
 
 .sanityBar {
+    cursor: pointer;
     width: 50%;
     height: 25px;
     background-color: #011b64;
@@ -418,6 +424,7 @@ select:focus {
     align-items: center;
     justify-content: center;
     text-align: center;
+    
 }
 
 /* FIM BARS */
@@ -478,7 +485,7 @@ select:focus {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    height: 35px;
+    height: 80px;
 }
 
 .attribute a {
@@ -498,6 +505,22 @@ select:focus {
     font-size: 18px;
     align-self: center;
 }
+
+.resultadod20  {
+    font-size: 40px;
+    margin-top: 37px;
+    
+}
+
+
+.resultadod100  {
+    font-size: 20px;
+    margin-top: 37px;
+    
+}
+
+  
+
 
 /* The Modal (background) */
 
@@ -563,6 +586,8 @@ select:focus {
     transition: transform .8s ease-in-out;
 }
 
+
+
 @media only screen and (min-width: 1000px) {
     .container {
         width: 65%;
@@ -622,5 +647,50 @@ input[type="checkbox"]:checked + label:after {
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
 }
+
+button {
+    display: inline-block;
+    height: 100px;
+    padding: 0;
+    margin: 0;
+    vertical-align: top;
+    width: 104px;
+    background-color:#0a0b0c;
+
+}
+
+.button2 {
+    display: inline-block;
+    height: 100px;
+    padding: 0;
+    margin: 0;
+    vertical-align: top;
+    width: 104px;
+    background-color:rgb(10, 11, 12);
+    animation: rotation 2s linear;
+}
+
+
+.dice2 {
+    height: 80px;
+    margin-top: 18px;
+    margin-left: 50px;
+    cursor: pointer;
+}
+
+
+
+.sanityfont {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    
+    
+}
+
+
+
+
+
 
 
