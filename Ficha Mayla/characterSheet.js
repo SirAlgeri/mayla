@@ -19,7 +19,7 @@ const data = {
   arma_fogo2:'6',
   arma_fogo3:'6',
   municao:'15/15',
-  munição2: '7',
+  municao2: '7',
   slot_arma1: 'beretta',
   slot_arma2: 'Escopeta',
   slot_arma3: 'N/a',
