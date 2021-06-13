@@ -4,7 +4,7 @@ const data = {
   player: 'Fernanda',
   occupation: 'Arqueóloga',
   age: 31,
-  sex: 'Masculino',
+  sex: 'Feminino',
   altura: '1,65m',
   peso: '77kg',
   
@@ -19,21 +19,22 @@ const data = {
   arma_fogo2:'6',
   arma_fogo3:'6',
   municao:'15/15',
+  munição2: '',
   slot_arma1: 'beretta',
-  slot_arma2: 'N/a',
+  slot_arma2: 'Escopeta',
   slot_arma3: 'N/a',
   dano1: '1d8',
-  dano2: 'N/a',
+  dano2: '3d10',
   dano3: 'N/a',
   alcance1: '10',
-  alcance2: 'N/a',
+  alcance2: '9',
   alcance3: 'N/a',
   slot: 'Garrafa De Gosma',
   slot2: 'Câmera fotográfica',
   slot3: 'Lanterna',
   slot4: 'Pilhas/15munição pistola',
-  slot5: 'Ataduras',
-  slot6: 'Tênis',
+  slot5: 'Ataduras/óculos',
+  slot6: '7 Munição de escopeta',
   
 
   // PERÍCIAS 
@@ -79,7 +80,7 @@ const data = {
     max: 12,
   },
   sanity: {
-    current: 85,
+    current: 83,
     max: 86,
   },
 
@@ -177,6 +178,8 @@ $('#arma_fogo1').val(data.arma_fogo1)
 $('#arma_fogo2').val(data.arma_fogo2)
 $('#arma_fogo3').val(data.arma_fogo3)
 $('#municao').val(data.municao)
+$('#municao2').val(data.municao2)
+$('#municao3').val(data.municao3)
 $('#lutar').val(data.lutar)
 $('#lutar2').val(data.lutar2)
 $('#lutar3').val(data.lutar3)
