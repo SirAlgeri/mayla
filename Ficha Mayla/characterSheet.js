@@ -35,6 +35,15 @@ const data = {
   slot4: 'Pilhas/15munição pistola',
   slot5: 'Ataduras/óculos',
   slot6: '7 Munição de escopeta',
+  anotacoes: 'Óculos',
+  anotacoes2: 'Ficha Altair',
+  anotacoes3: 'Pilhas',
+  anotacoes4: 'Tenis',
+  anotacoes5: '',
+  anotacoes6: '',
+  anotacoes7: '',
+  anotacoes8: '',
+  anotacoes9: '',
   
 
   // PERÍCIAS 
@@ -130,6 +139,15 @@ data.attributes.map((attribute, index) => {
 
 $('#name').val(data.name)
 $('#player').val(data.player)
+$('#anotacoes').val(data.anotacoes)
+$('#anotacoes2').val(data.anotacoes2)
+$('#anotacoes3').val(data.anotacoes3)
+$('#anotacoes4').val(data.anotacoes4)
+$('#anotacoes5').val(data.anotacoes5)
+$('#anotacoes6').val(data.anotacoes6)
+$('#anotacoes7').val(data.anotacoes7)
+$('#anotacoes8').val(data.anotacoes8)
+$('#anotacoes8').val(data.anotacoes9)
 $('#occupation').val(data.occupation)
 $('#age').val(data.age)
 $('#sex').val(data.sex)
