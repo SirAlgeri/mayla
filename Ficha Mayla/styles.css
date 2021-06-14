@@ -52,7 +52,8 @@ h2.grid-title {
         'details details details character'
         'attributes attributes attributes expertise'
         'combat combat combat combat'
-        'expertise2 expertise2 expertise2 expertise2';
+        'expertise2 expertise2 expertise2 expertise2'
+        'expertise3 expertise3 expertise3 expertise3';
     grid-gap: 30px;
 
     margin-left: auto;
@@ -110,6 +111,11 @@ h2.grid-title {
 
 .expertise2 { 
     grid-area: expertise2;
+    height: 400px;
+}
+
+.expertise3 { 
+    grid-area: expertise3;
     height: 400px;
 }
 
@@ -364,6 +370,7 @@ select:focus {
     margin-bottom: 10px;
     margin-top: 5px;
     overflow: hidden;
+    
 }
 
 .barcount {
