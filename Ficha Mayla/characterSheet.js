@@ -15,9 +15,9 @@ const data = {
   lutar2: 10,
   lutar3: 10,
   lutar4: 10,
-  arma_fogo1:'7',
-  arma_fogo2:'7',
-  arma_fogo3:'7',
+  arma_fogo1:'8',
+  arma_fogo2:'8',
+  arma_fogo3:'8',
   municao:'15/15',
   municao2: '7',
   slot_arma1: 'beretta',
@@ -89,7 +89,7 @@ const data = {
     max: 12,
   },
   sanity: {
-    current: 83,
+    current: 80,
     max: 86,
   },
 
